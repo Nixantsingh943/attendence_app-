@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import API from "../api/api";
 import Navbar from "./Navbar";
-import "./Dashboard.css";
+import "./AttendanceHistory.css";
 
 export default function AttendanceHistory() {
     const [records, setRecords] = useState([]);
