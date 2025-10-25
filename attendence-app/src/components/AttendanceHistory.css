@@ -1,0 +1,101 @@
+/* attendance.css - Futuristic Dark Theme */
+
+/* Container styling */
+.dashboard-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(circle at 20% 20%, #11111f, #0d0d1a 90%);
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Page heading */
+.dashboard-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #00d8ff;
+    text-shadow: 0 0 10px #00d8ff, 0 0 25px rgba(0, 216, 255, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+    text-align: center;
+}
+
+/* Attendance list container */
+.attendance-list {
+    list-style: none;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(25, 25, 45, 0.35);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Individual record item */
+.attendance-list li {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e0e0e0;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.attendance-list li:last-child {
+    border-bottom: none;
+}
+
+/* Hover effect on each item */
+.attendance-list li:hover {
+    background: rgba(0, 216, 255, 0.05);
+    box-shadow: 0 0 15px rgba(0, 216, 255, 0.2) inset;
+    transform: translateY(-2px);
+}
+
+/* Status colors */
+.attendance-list li span.status {
+    font-weight: 600;
+    color: #00ffcc;
+    /* Present */
+}
+
+.attendance-list li span.status.absent {
+    color: #ff6b6b;
+    /* Absent */
+}
+
+/* Glow animation for heading */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #00d8ff, 0 0 25px rgba(0, 216, 255, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 20px #00d8ff, 0 0 50px rgba(0, 216, 255, 0.8);
+    }
+
+    100% {
+        text-shadow: 0 0 10px #00d8ff, 0 0 25px rgba(0, 216, 255, 0.5);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .attendance-list {
+        width: 90%;
+    }
+
+    .dashboard-container h2 {
+        font-size: 2rem;
+    }
+}
