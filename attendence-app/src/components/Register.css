@@ -1,0 +1,49 @@
+.register-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #007bff, #00bcd4);
+}
+
+.register-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.register-card input {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.btn.primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+.login-redirect {
+    margin-top: 15px;
+    color: #333;
+}
+
+.login-redirect span {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}

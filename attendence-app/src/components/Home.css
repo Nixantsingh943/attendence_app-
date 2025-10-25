@@ -1,0 +1,154 @@
+.home-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(270deg, #ff5858, #f09819, #4facfe, #00f2fe);
+    background-size: 800% 800%;
+    animation: gradient 15s ease infinite;
+    color: white;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.home-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 500px;
+}
+
+.home-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.home-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.primary {
+    background: #ff5858;
+    color: white;
+}
+
+.primary:hover {
+    background: #f09819;
+}
+
+.secondary {
+    background: white;
+    color: #ff5858;
+}
+
+.secondary:hover {
+    background: #ff5858;
+    color: white;
+}
+
+/* Floating circles */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 10s infinite linear;
+}
+
+.c1 {
+    width: 80px;
+    height: 80px;
+    background: #ff5858;
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.c2 {
+    width: 120px;
+    height: 120px;
+    background: #f09819;
+    top: 70%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.c3 {
+    width: 60px;
+    height: 60px;
+    background: #4facfe;
+    top: 30%;
+    left: 80%;
+    animation-delay: 4s;
+}
+
+.c4 {
+    width: 100px;
+    height: 100px;
+    background: #00f2fe;
+    top: 50%;
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.c5 {
+    width: 150px;
+    height: 150px;
+    background: #ff5858;
+    top: 80%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
