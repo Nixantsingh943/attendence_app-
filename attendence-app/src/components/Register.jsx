@@ -20,7 +20,8 @@ export default function Register() {
     };
 
     return (
-        <div className="form-container">
+        <div className="con">
+            <div className="form-container">
             <h2>Create an Account</h2>
             <input
                 type="text"
@@ -42,6 +43,7 @@ export default function Register() {
                 Already have an account?{" "}
                 <span onClick={() => navigate("/login")}>Login Here</span>
             </p>
+        </div>
         </div>
     );
 }
