@@ -1,154 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', 'Poppins', sans-serif;
+    background: #11111f;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+/* Main container */
 .home-container {
     position: relative;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    background: radial-gradient(circle at 20% 20%, #222240, #11111f 80%);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(270deg, #ff5858, #f09819, #4facfe, #00f2fe);
-    background-size: 800% 800%;
-    animation: gradient 15s ease infinite;
-    color: white;
+    overflow: hidden;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
+/* Overlay for depth */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(17, 17, 31, 0.7);
+    z-index: 1;
 }
 
+/* Center content */
 .home-content {
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 500px;
+    max-width: 700px;
+    padding: 30px;
+    background: rgba(34, 34, 64, 0.25);
+    border-radius: 25px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease;
 }
 
+.home-content:hover {
+    transform: scale(1.02);
+}
+
+/* Heading */
 .home-content h1 {
     font-size: 3rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+    color: #00d8ff;
+    /* Matches primary button cyan */
+    text-shadow: 0 2px 10px rgba(0, 216, 255, 0.5);
 }
 
+/* Subtitle */
 .home-content p {
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
+    color: #b0b0c0;
+    line-height: 1.6;
 }
 
+/* Button container */
 .buttons {
     display: flex;
-    gap: 20px;
+    gap: 1.5rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
+/* Futuristic rounded buttons */
 .btn {
+    position: relative;
+    display: inline-block;
+    padding: 14px 40px;
+    font-size: 1rem;
+    font-weight: 600;
     text-decoration: none;
-    padding: 12px 25px;
-    font-size: 18px;
-    border-radius: 8px;
-    transition: 0.3s;
+    border-radius: 30px;
+    border: 2px solid;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.primary {
-    background: #ff5858;
-    color: white;
+/* Primary button - Student Login */
+.btn.primary {
+    background-color: #507177;
+    /* Cyan */
+    color: #0f0f1a;
+    border-color: #00d8ff;
+    box-shadow: 0 0 10px #00d8ff, 0 0 20px #00d8ff inset;
 }
 
-.primary:hover {
-    background: #f09819;
+.btn.primary:hover {
+    background-color: #0f0f1a;
+    color: #00d8ff;
+    box-shadow: 0 0 20px #00d8ff, 0 0 40px #00d8ff inset;
+    transform: translateY(-3px);
 }
 
-.secondary {
-    background: white;
-    color: #ff5858;
+/* Secondary button - Register */
+.btn.secondary {
+    background-color: transparent;
+    color: #ff9f91;
+    border-color: #ff9f91;
+    box-shadow: 0 0 10px #ff9f91 inset;
 }
 
-.secondary:hover {
-    background: #ff5858;
-    color: white;
+.btn.secondary:hover {
+    background-color: rgba(255, 159, 145, 0.15);
+    color: #ffffff;
+    box-shadow: 0 0 20px #ff9f91 inset, 0 0 40px rgba(255, 159, 145, 0.3);
+    transform: translateY(-3px);
 }
 
-/* Floating circles */
+/* Floating abstract shapes */
 .circle {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.3;
-    animation: float 10s infinite linear;
+    opacity: 0.15;
+    animation: drift 25s infinite linear;
 }
 
 .c1 {
-    width: 80px;
-    height: 80px;
-    background: #ff5858;
+    width: 150px;
+    height: 150px;
+    background: #00d8ff;
     top: 10%;
     left: 15%;
     animation-delay: 0s;
 }
 
 .c2 {
-    width: 120px;
-    height: 120px;
-    background: #f09819;
-    top: 70%;
-    left: 20%;
-    animation-delay: 2s;
+    width: 100px;
+    height: 100px;
+    background: #ff9f91;
+    bottom: 15%;
+    right: 10%;
+    animation-delay: 5s;
 }
 
 .c3 {
-    width: 60px;
-    height: 60px;
-    background: #4facfe;
-    top: 30%;
-    left: 80%;
-    animation-delay: 4s;
+    width: 120px;
+    height: 120px;
+    background: #00d8ff;
+    top: 40%;
+    left: 50%;
+    animation-delay: 10s;
 }
 
 .c4 {
-    width: 100px;
-    height: 100px;
-    background: #00f2fe;
-    top: 50%;
-    left: 50%;
-    animation-delay: 1s;
+    width: 90px;
+    height: 90px;
+    background: #ff9f91;
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 15s;
 }
 
 .c5 {
-    width: 150px;
-    height: 150px;
-    background: #ff5858;
-    top: 80%;
-    left: 70%;
-    animation-delay: 3s;
+    width: 130px;
+    height: 130px;
+    background: #00d8ff;
+    top: 20%;
+    right: 25%;
+    animation-delay: 20s;
 }
 
-@keyframes float {
+@keyframes drift {
     0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translate(0, 0) rotate(0deg);
     }
 
     50% {
-        transform: translateY(-30px) rotate(180deg);
+        transform: translate(20px, -20px) rotate(180deg);
     }
 
     100% {
-        transform: translateY(0) rotate(360deg);
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 2rem;
+    }
+
+    .home-content p {
+        font-size: 1rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
