@@ -52,8 +52,10 @@ export default function Dashboard() {
                     Mark Attendance
                 </button>
                 {status && <p className="status-message">{status}</p>}
-                <Link to="/history" className="history-link">
-                    View Attendance History
+                <Link to="/history">
+                    <button className="mark-attendance-btn">
+                        View Attendance History
+                    </button>
                 </Link>
             </div>
         </>
