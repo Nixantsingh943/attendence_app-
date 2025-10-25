@@ -19,23 +19,25 @@ export default function Login() {
     };
 
     return (
-        <div className="form-container">
-            <h2>Login</h2>
-            <input
-                type="email"
-                placeholder="Email"
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-            />
-            <input
-                type="password"
-                placeholder="Password"
-                onChange={(e) => setForm({ ...form, password: e.target.value })}
-            />
-            <button onClick={handleLogin}>Login</button>
-            <p>
-                Don't have an account?{" "}
-                <span onClick={() => navigate("/register")}>Register Now</span>
-            </p>
+        <div className="con">
+                <div className="form-container">
+                <h2>Login</h2>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    onChange={(e) => setForm({ ...form, password: e.target.value })}
+                />
+                <button onClick={handleLogin}>Login</button>
+                <p>
+                    Don't have an account?{" "}
+                    <span onClick={() => navigate("/register")}>Register Now</span>
+                </p>
+            </div>
         </div>
     );
 }
