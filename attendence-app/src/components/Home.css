@@ -1,3 +1,4 @@
+/* Reset and base style */
 * {
     margin: 0;
     padding: 0;
@@ -8,64 +9,60 @@ html,
 body {
     width: 100%;
     height: 100%;
-    font-family: 'Segoe UI', 'Poppins', sans-serif;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
     background: #11111f;
     color: #e0e0e0;
     overflow-x: hidden;
 }
 
-/* Main container */
+/* Home container */
 .home-container {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: radial-gradient(circle at 20% 20%, #222240, #11111f 80%);
     display: flex;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(circle at 30% 20%, #1a1a33, #0c0c18 80%);
     overflow: hidden;
 }
 
-/* Overlay for depth */
+/* Semi-transparent dark overlay */
 .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(17, 17, 31, 0.7);
     z-index: 1;
 }
 
-/* Center content */
+/* Central content box */
 .home-content {
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 700px;
-    padding: 30px;
+    padding: 40px;
     background: rgba(34, 34, 64, 0.25);
     border-radius: 25px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    transition: transform 0.4s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .home-content:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
 }
 
 /* Heading */
 .home-content h1 {
     font-size: 3rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     color: #00d8ff;
-    /* Matches primary button cyan */
     text-shadow: 0 2px 10px rgba(0, 216, 255, 0.5);
 }
 
-/* Subtitle */
+/* Subheading */
 .home-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
@@ -73,15 +70,16 @@ body {
     line-height: 1.6;
 }
 
-/* Button container */
+/* Button layout */
 .buttons {
     display: flex;
-    gap: 1.5rem;
     justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
-/* Futuristic rounded buttons */
+/* Shared button base */
 .btn {
     position: relative;
     display: inline-block;
@@ -91,16 +89,14 @@ body {
     text-decoration: none;
     border-radius: 30px;
     border: 2px solid;
-    overflow: hidden;
     cursor: pointer;
     transition: all 0.4s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Primary button - Student Login */
+/* Primary (Student Login) */
 .btn.primary {
     background-color: #507177;
-    /* Cyan */
     color: #0f0f1a;
     border-color: #00d8ff;
     box-shadow: 0 0 10px #00d8ff, 0 0 20px #00d8ff inset;
@@ -113,7 +109,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* Secondary button - Register */
+/* Secondary (Register) */
 .btn.secondary {
     background-color: transparent;
     color: #ff9f91;
@@ -123,12 +119,12 @@ body {
 
 .btn.secondary:hover {
     background-color: rgba(255, 159, 145, 0.15);
-    color: #ffffff;
+    color: #fff;
     box-shadow: 0 0 20px #ff9f91 inset, 0 0 40px rgba(255, 159, 145, 0.3);
     transform: translateY(-3px);
 }
 
-/* Floating abstract shapes */
+/* Floating ambient circles */
 .circle {
     position: absolute;
     border-radius: 50%;
@@ -140,7 +136,7 @@ body {
     width: 150px;
     height: 150px;
     background: #00d8ff;
-    top: 10%;
+    top: 12%;
     left: 15%;
     animation-delay: 0s;
 }
@@ -158,7 +154,7 @@ body {
     width: 120px;
     height: 120px;
     background: #00d8ff;
-    top: 40%;
+    top: 45%;
     left: 50%;
     animation-delay: 10s;
 }
@@ -168,7 +164,7 @@ body {
     height: 90px;
     background: #ff9f91;
     bottom: 20%;
-    left: 20%;
+    left: 22%;
     animation-delay: 15s;
 }
 
@@ -181,24 +177,27 @@ body {
     animation-delay: 20s;
 }
 
+/* Circle drifting animation */
 @keyframes drift {
     0% {
         transform: translate(0, 0) rotate(0deg);
     }
-
     50% {
-        transform: translate(20px, -20px) rotate(180deg);
+        transform: translate(25px, -25px) rotate(180deg);
     }
-
     100% {
         transform: translate(0, 0) rotate(360deg);
     }
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
+    .home-content {
+        padding: 25px;
+    }
+
     .home-content h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .home-content p {
