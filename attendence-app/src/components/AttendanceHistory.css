@@ -1,101 +1,105 @@
-/* attendance.css - Futuristic Dark Theme */
-
-/* Container styling */
-.dashboard-container {
-    width: 100%;
-    min-height: 100vh;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: radial-gradient(circle at 20% 20%, #11111f, #0d0d1a 90%);
+.history-container {
+    max-width: 900px;
+    margin: 100px auto 60px auto;
+    padding: 30px 25px;
+    background: rgba(28, 28, 56, 0.25);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(0, 216, 255, 0.18);
+    box-shadow: 0 15px 40px rgba(0, 216, 255, 0.12);
     color: #e0e0e0;
-    font-family: 'Poppins', sans-serif;
 }
 
-/* Page heading */
-.dashboard-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+.history-container h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
     color: #00d8ff;
-    text-shadow: 0 0 10px #00d8ff, 0 0 25px rgba(0, 216, 255, 0.5);
-    animation: glow 2s ease-in-out infinite alternate;
     text-align: center;
+    text-shadow: 0 0 18px rgba(0, 216, 255, 0.6);
+    margin-bottom: 1.5rem;
 }
 
-/* Attendance list container */
-.attendance-list {
-    list-style: none;
-    max-width: 600px;
+.history-container table {
     width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    border-radius: 20px;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-size: 1rem;
+    text-align: left;
+    color: #d0d0e0;
+    box-shadow: 0 8px 30px rgba(0, 216, 255, 0.1);
+    border-radius: 15px;
     overflow: hidden;
-    background: rgba(25, 25, 45, 0.35);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Individual record item */
-.attendance-list li {
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #e0e0e0;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: default;
+.history-container thead tr {
+    background-color: rgba(0, 216, 255, 0.15);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
 }
 
-.attendance-list li:last-child {
-    border-bottom: none;
+.history-container th,
+.history-container td {
+    padding: 14px 20px;
+    vertical-align: middle;
 }
 
-/* Hover effect on each item */
-.attendance-list li:hover {
-    background: rgba(0, 216, 255, 0.05);
-    box-shadow: 0 0 15px rgba(0, 216, 255, 0.2) inset;
-    transform: translateY(-2px);
+.history-container tbody tr {
+    background: rgba(34, 34, 64, 0.35);
+    box-shadow: inset 0 0 12px #00d8ff55;
+    border-radius: 12px;
+    transition: background-color 0.25s ease;
 }
 
-/* Status colors */
-.attendance-list li span.status {
+.history-container tbody tr:hover {
+    background-color: rgba(0, 216, 255, 0.15);
+}
+
+.history-container tbody td {
     font-weight: 600;
-    color: #00ffcc;
-    /* Present */
+    color: #c6eaff;
 }
 
-.attendance-list li span.status.absent {
+.history-container tbody td:nth-child(4) {
+    font-weight: 700;
+}
+
+/* Status color coding */
+.history-container tbody td:nth-child(4):contains('Present') {
+    color: #2cffe7;
+}
+
+.history-container tbody td:nth-child(4):contains('Absent') {
     color: #ff6b6b;
-    /* Absent */
 }
 
-/* Glow animation for heading */
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 10px #00d8ff, 0 0 25px rgba(0, 216, 255, 0.5);
-    }
-
-    50% {
-        text-shadow: 0 0 20px #00d8ff, 0 0 50px rgba(0, 216, 255, 0.8);
-    }
-
-    100% {
-        text-shadow: 0 0 10px #00d8ff, 0 0 25px rgba(0, 216, 255, 0.5);
-    }
+.history-container tbody td:nth-child(4):contains('Late') {
+    color: #ffcc00;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
-    .attendance-list {
-        width: 90%;
+    .history-container {
+        margin: 90px 15px 40px;
+        padding: 25px 18px;
     }
 
-    .dashboard-container h2 {
-        font-size: 2rem;
+    .history-container h2 {
+        font-size: 1.9rem;
+    }
+
+    .history-container th,
+    .history-container td {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .history-container table {
+        font-size: 0.9rem;
     }
 }
