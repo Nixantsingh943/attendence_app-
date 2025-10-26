@@ -11,7 +11,7 @@ export default function Register() {
         const { name, email, password } = student;
         if (!name || !email || !password) return alert("Please fill in all fields.");
         try {
-            await API.post("/api/auth/register", student);
+            await API.post("/auth/register", student);
             alert("Registration successful!");
             navigate("/login");
         } catch (error) {
@@ -22,28 +22,13 @@ export default function Register() {
     return (
         <div className="con">
             <div className="form-container">
-            <h2>Create an Account</h2>
-            <input
-                type="text"
-                placeholder="Full Name"
-                onChange={(e) => setStudent({ ...student, name: e.target.value })}
-            />
-            <input
-                type="email"
-                placeholder="Email"
-                onChange={(e) => setStudent({ ...student, email: e.target.value })}
-            />
-            <input
-                type="password"
-                placeholder="Password"
-                onChange={(e) => setStudent({ ...student, password: e.target.value })}
-            />
-            <button onClick={handleRegister}>Register</button>
-            <p>
-                Already have an account?{" "}
-                <span onClick={() => navigate("/login")}>Login Here</span>
-            </p>
-        </div>
+                <h2>Create an Account</h2>
+                <input type="text" placeholder="Full Name" onChange={(e) => setStudent({ ...student, name: e.target.value })} />
+                <input type="email" placeholder="Email" onChange={(e) => setStudent({ ...student, email: e.target.value })} />
+                <input type="password" placeholder="Password" onChange={(e) => setStudent({ ...student, password: e.target.value })} />
+                <button onClick={handleRegister}>Register</button>
+                <p>Already have an account? <span onClick={() => navigate("/login")}>Login Here</span></p>
+            </div>
         </div>
     );
 }
