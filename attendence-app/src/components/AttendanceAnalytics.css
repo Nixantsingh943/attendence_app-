@@ -1,1 +1,58 @@
+/* Container for the analytics */
+.attendance-analytics-container {
+    background: rgba(28, 28, 56, 0.24);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(0, 216, 255, 0.3);
+    box-shadow: 0 8px 35px rgba(0, 216, 255, 0.2);
+    padding: 30px 25px;
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    color: #00f6ff;
+    font-weight: 600;
+    font-family: 'Segoe UI', 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/* Heading style */
+.attendance-analytics-container h3 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #00f6ff;
+    text-shadow: 0 2px 16px rgba(0, 246, 255, 0.6);
+}
+
+/* Recharts Tooltip customization */
+.recharts-tooltip-wrapper {
+    background: rgba(0, 216, 255, 0.9) !important;
+    color: #111;
+    font-weight: 700;
+    border-radius: 10px !important;
+    padding: 8px 15px !important;
+    box-shadow: 0 0 12px #00d8ffdd !important;
+}
+
+/* Recharts Legend customization */
+.recharts-default-legend {
+    color: #00eaff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 5px #00d8ffaa;
+}
+
+/* Responsive container parent */
+.attendance-analytics-responsive {
+    width: 100%;
+    height: 300px;
+}
+
+/* Pie slices glow effect */
+.recharts-pie-sector {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 4px #00f6ff88);
+}
+
+.recharts-pie-sector:hover {
+    filter: drop-shadow(0 0 12px #00f6ffcc);
+    cursor: pointer;
+}
 
