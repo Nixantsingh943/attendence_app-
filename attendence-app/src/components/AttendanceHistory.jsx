@@ -15,6 +15,7 @@ export default function AttendanceHistory() {
     }, []);
 
     return (
+        <div><Navbar />
         <div className="history-container">
             <h2>Attendance History</h2>
             <table>
@@ -37,6 +38,7 @@ export default function AttendanceHistory() {
                     ))}
                 </tbody>
             </table>
+        </div>
         </div>
     );
 }
