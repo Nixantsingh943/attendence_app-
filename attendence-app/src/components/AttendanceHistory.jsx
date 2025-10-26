@@ -1,36 +1,42 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import API from "../api/api";
-import Navbar from "./Navbar";
 import "./AttendanceHistory.css";
+import Navbar from "./Navbar";
 
 export default function AttendanceHistory() {
     const [records, setRecords] = useState([]);
 
     useEffect(() => {
-        const fetchHistory = async () => {
-            try {
-                const res = await API.get("/api/attendance/history");
-                setRecords(res.data);
-            } catch {
-                alert("Session expired. Please login again.");
-            }
+        const fetchRecords = async () => {
+            const res = await API.get("/attendance");
+            setRecords(res.data);
         };
-        fetchHistory();
+        fetchRecords();
     }, []);
 
     return (
-        <>
-            <Navbar />
-            <div className="dashboard-container">
-                <h2>Attendance History</h2>
-                <ul className="attendance-list">
-                    {records.map((record) => (
-                        <li key={record._id}>
-                            {record.date} — {record.status}
-                        </li>
+        <div className="history-container">
+            <h2>Attendance History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Subject</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {records.map(r => (
+                        <tr key={r._id}>
+                            <td>{r.date}</td>
+                            <td>{r.subject.name}</td>
+                            <td>{r.type}</td>
+                            <td>{r.status}</td>
+                        </tr>
                     ))}
-                </ul>
-            </div>
-        </>
+                </tbody>
+            </table>
+        </div>
     );
 }
