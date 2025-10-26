@@ -9,7 +9,7 @@ export default function Login() {
 
     const handleLogin = async () => {
         try {
-            const res = await API.post("/api/auth/login", form);
+            const res = await API.post("/auth/login", form);
             localStorage.setItem("token", res.data.token);
             alert("Login successful!");
             navigate("/dashboard");
@@ -20,23 +20,12 @@ export default function Login() {
 
     return (
         <div className="con">
-                <div className="form-container">
+            <div className="form-container">
                 <h2>Login</h2>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    onChange={(e) => setForm({ ...form, password: e.target.value })}
-                />
+                <input type="email" placeholder="Email" onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                <input type="password" placeholder="Password" onChange={(e) => setForm({ ...form, password: e.target.value })} />
                 <button onClick={handleLogin}>Login</button>
-                <p>
-                    Don't have an account?{" "}
-                    <span onClick={() => navigate("/register")}>Register Now</span>
-                </p>
+                <p>Don't have an account? <span onClick={() => navigate("/register")}>Register Now</span></p>
             </div>
         </div>
     );
