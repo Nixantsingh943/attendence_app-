@@ -4,7 +4,10 @@ const Student = require("../models/Student");
 const protect = async (req, res, next) => {
     let token;
 
-    if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+    if (
+        req.headers.authorization &&
+        req.headers.authorization.startsWith("Bearer")
+    ) {
         try {
             token = req.headers.authorization.split(" ")[1];
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -12,10 +15,13 @@ const protect = async (req, res, next) => {
             if (!req.student) return res.status(401).json({ message: "Student not found" });
             next();
         } catch (error) {
-            return res.status(401).json({ message: "Invalid or expired token" });
+            console.error(error);
+            res.status(401).json({ message: "Not authorized, token failed" });
         }
-    } else {
-        res.status(401).json({ message: "Not authorized, token missing" });
+    }
+
+    if (!token) {
+        res.status(401).json({ message: "Not authorized, no token" });
     }
 };
 
